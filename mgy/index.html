@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mengayu Indonesia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="/image/logo2.png" type="image/x-icon">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const updateCount = () => {
+                            const target = +counter.getAttribute('data-target');
+                            const count = +counter.innerText;
+                            const increment = target / 100;
+
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + increment);
+                                setTimeout(updateCount, 20);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-pink-500 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div>
+                <!-- Replace with actual Mengayu logo -->
+                <img src="/image/logo.jpg" alt="Mengayu Logo" class="h-10 w-auto">
+            </div>
+            <div class="space-x-4">
+                <a href="#home" class="hover:text-pink-200">Home</a>
+                <a href="#team" class="hover:text-pink-200">Team</a>
+                <a href="#products" class="hover:text-pink-200">Produk</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Women Empowerment Image -->
+    <section id="home" class="relative">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="w-full md:w-1/2 p-6">
+                <h1 class="text-4xl font-bold text-pink-600 mb-4">
+                    Usaha Sosial Pemberdayaan Perempuan
+                </h1>
+                <p class="text-gray-700 mb-6">
+                    Memberikan Pelatihan Kerja dan Ruang Kerja Aman untuk Perempuan
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">
+                        Lihat Produk
+                    </a>
+                    <a href="#contact" class="border border-pink-500 text-pink-500 px-6 py-2 rounded-full hover:bg-pink-50">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <!-- Replace with actual women empowerment image -->
+                <img src="/image/logo2.png" alt="Pemberdayaan Perempuan" class="w-full h-auto object-cover rounded-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section (Same as previous template) -->
+    <section id="team" class="container mx-auto mt-10 p-6">
+        <h2 class="text-3xl font-bold text-center mb-6" style="color: #013766;">Tim Kami</h2>
+        <div class="grid md:grid-cols-3 gap-6" style="color: #013766;">
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <img src="/image/1.png" class="w-16 h-16 mx-auto rounded-full mb-4" alt="Riza Nisriinaa" style="width: 4cm; height: 4cm;">
+                <h3 class="font-bold">Riza Nisriinaa</h3>
+                <p>CEO & Founder</p>
+                <p class="text-sm"><B>6 Tahun</B> melakukan pendampingan di <B>3 Lembaga Bantuan Hukum berbeda.</B></p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <img src="/image/2.png" class="w-16 h-16 mx-auto rounded-full mb-4" alt="Elly Agustia" style="width: 4cm; height: 4cm;">
+                <h3 class="font-bold">Elly Agustia</h3>
+                <p>Chief Finance Officer</p>
+                <p class="text-sm"><B>5 tahun</B> sektor perbankan dan <B>sebagai penyintas kekerasan dalam rumah tangga.</B></p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <img src="/image/3.png" class="w-16 h-16 mx-auto rounded-full mb-4" alt="Bella Ayu A" style="width: 4cm; height: 4cm;">
+                <h3 class="font-bold">Bella Ayu A</h3>
+                <p>Chief Operational Officer</p>
+                <p class="text-sm"><B>3 Tahun</B> dalam Organisasi Perempuan Jember, <B>pengembangan bisnis dan peningkatan kapasitas perempuan rentan.</B></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section with PDF-based Details -->
+    <section id="products" class="container mx-auto mt-10 p-6">
+        <h2 class="text-3xl font-bold text-center mb-6" style="color: #013766;">Layanan Kami</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+    
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <img src="/image/layanan1.png" alt="Home Treatment" class="mb-4 rounded-lg w-full object-cover h-48"> <h3 class="font-bold text-pink-600 mb-2 text-center">Home Treatment</h3>
+                <div class="mb-2">
+                    <span class="font-bold">Layanan:</span><br>
+                    <span>Perawatan kecantikan di rumah (home treatment) oleh Mengayu.</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Target pelanggan:</span><br>
+                    <span>Dirancang khusus untuk perempuan yang memiliki keterbatasan fisik, mobilitas, atau akses untuk keluar rumah.</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Layanan yang disediakan:</span><br>
+                    <span>Creambath, facial, pijat, dan potong rambut. Kemudahan: Pelanggan dapat menikmati perawatan tanpa harus meninggalkan rumah.</span>
+                </div>
+                <div class="mt-2">
+                    <span class="font-bold">Harga:</span><br>
+                    <span>Rp. 30.000 - Rp. 200.000</span>
+                </div>
+            </div>
+    
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <img src="/image/layanan2.png" alt="Salon Fisik" class="mb-4 rounded-lg w-full object-cover h-48">
+                <h3 class="font-bold text-pink-600 mb-2 text-center">Salon Fisik</h3>
+                <div class="mb-2">
+                    <span class="font-bold">Lokasi:</span><br>
+                    <span>Salon fisik Mengayu terletak di Jalan Sumatera Nomor 120A, Jember.</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Khusus untuk perempuan:</span><br>
+                    <span>Salon ini dirancang eksklusif bagi perempuan.</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Layanan yang disediakan:</span><br>
+                    <span>Facial, creambath, pijat, lulur, potong rambut, dan pewarnaan rambut.</span>
+                </div>
+                <div class="mt-2">
+                    <span class="font-bold">Range harga:</span><br>
+                    <span>Rp. 30.000 - Rp. 200.000.</span>
+                </div>
+            </div>
+    
+            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <img src="/image/layanan3.png" alt="Brightlove" class="mb-4 rounded-lg w-full object-cover h-48">
+                <h3 class="font-bold text-pink-600 mb-2 text-center">Brightlove</h3>
+                <div class="mb-2">
+                    <span class="font-bold">Layanan:</span><br>
+                    <span>Program pelatihan make-up yang diselenggarakan oleh Mengayu</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Bekerja sama dengan brand lokal Indonesia:</span><br>
+                    <span>Wardah, Inez, Latulipe, Viva, dan Nuface.</span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-bold">Menjangkau:</span><br>
+                    <span>50 hingga 100 konsumen perbulan</span>
+                </div>
+                <div class="mt-2">
+                    <span class="font-bold">Biaya:</span><br>
+                    <span>Rp. 100.000-150.000/per peserta</span>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+  <!-- Impact Section -->
+  <section id="impact" class="bg-white py-12">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8" style="color: #013766;">Impact 2024</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Impact 1 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <img src="/image/icon1.png" alt="Pelatihan Kecantikan" class="w-32 h-32 rounded-lg shadow-lg">
+                <div class="text-pink-600 text-5xl font-bold counter" data-target="350">0</div>
+                <h3 class="text-lg font-bold text-pink-500">Perempuan</h3>
+                <p class="text-gray-700">mendapatkan
+                    Pelatihan Kecantikan
+                    bekerjasama dengan Brand &
+                    Pemerintah Daerah.</p>
+            </div>
+
+            <!-- Impact 2 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <img src="/image/icon2.png" alt="Group Counseling" class="w-32 h-32 rounded-lg shadow-lg">
+                <div class="text-pink-600 text-5xl font-bold counter" data-target="50">0</div>
+                <h3 class="text-lg font-bold text-pink-500">Perempuan</h3>
+                <p class="text-gray-700">Group
+                    Counseling bekerjasama
+                    dengan Psikolog.
+                    </p>
+            </div>
+
+            <!-- Impact 3 -->
+            <div class="flex flex-col items-center text-center space-y-4">
+                <img src="/image/icon3.png" alt="Akses Hukum Pro-Bono" class="w-32 h-32 rounded-lg shadow-lg">
+                <div class="text-pink-600 text-5xl font-bold counter" data-target="30">0</div>
+                <h3 class="text-lg font-bold text-pink-500">Perempuan</h3>
+                <p class="text-gray-700"> Akses
+                    Hukum Pro-bono
+                    bekerjasama dengan
+                    Pengacara & Notaris.
+                    </p>
+            </div>
+        </div>
+        <div class="flex justify-center items-center mt-12">
+            <div class="flex flex-col items-center text-center space-y-4">
+                <img src="/image/icon4.png" alt="Perawatan" class="w-50 h-48 rounded-lg shadow-lg">
+                <div class="text-pink-600 text-5xl font-bold counter" data-target="520">0</div>
+                <h3 class="text-lg font-bold text-pink-500">Perempuan</h3>
+                <p class="text-gray-700"> melakukan
+                    perawatan dalam salon
+                    maupun home treatement, dan
+                    Rumah Sakit</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- partnership -->
+    <section class="container mx-auto mt-10 p-6">
+        <h2 class="text-3xl font-bold text-center mb-6" style="color: #013766;">ORGANISASI YANG MENDORONG KEMAJUAN DALAM<br>
+            PEMBERDAYAAN MENGAYU INDONESIA 2021 - 2024</h2>
+        <img src="/image/pathner.jpg" alt="partnership" class="w-full h-full object-cover">
+    </section>
+
+    <div id="contact" class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2">
+                    <h1 class="text-3xl font-bold text-pink-500 mb-4">Mengayu.</h1>
+                    <p class="text-gray-700 mb-2" style="color: #013766;">THANKYOU</p>
+                    <p class="text-gray-700 mb-4" style="color: #013766;">#AYUDENGANMENGAYU</p>
+
+                    <div class="mb-4">
+                        <h2 class="text-xl font-semibold mb-2" style="color: #013766;">Ruang Kerja Aman</h2>
+                        <p class="text-gray-700" style="color: #013766;">Jl. Sumatra No.120a, Tegal Boto Lor, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h2 class="text-xl font-semibold mb-2" style="color: #013766;">Care Service:</h2>
+                        <p class="text-gray-700">
+                            <a href="https://wa.me/6281559695693" target="_blank" class="text-blue-500 hover:underline">
+                                +62-815-5969-5693 (Admin AYU)
+                            </a>
+                        </p>
+                        <p class="text-gray-700">
+                            <a href="https://wa.me/6282132566795" target="_blank" class="text-blue-500 hover:underline">
+                                +62-821-3256-6795 (Riza Nisriinaa)
+                            </a>
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-gray-700">
+                            <a href="mailto:info.mengayu@gmail.com" class="text-blue-500 hover:underline">
+                                info.mengayu@gmail.com
+                            </a>
+                        </p>
+                        <p class="text-gray-700">
+                            <a href="mailto:nisriinariza@gmail.com" class="text-blue-500 hover:underline">
+                                nisriinariza@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                    
+
+                    <div>
+                        <h2 class="text-xl font-semibold mb-2" style="color: #013766;">Social Media</h2>
+                        <div class="flex space-x-4">
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/mengayu.id/" class="text-pink-500 hover:text-pink-700"><i class="fab fa-instagram text-3xl"></i></a>
+                            <!-- Facebook -->
+                            <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fab fa-facebook text-3xl"></i></a>
+                             <!-- Tiktok -->
+                             <a href="https://www.tiktok.com/@mengayu.id" class="text-black hover:text-gray-700"><i class="fab fa-tiktok text-3xl"></i></a>
+                            <!-- YouTube -->
+                            <a href="#" class="text-red-600 hover:text-red-800"><i class="fab fa-youtube text-3xl"></i></a>
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/company/mengayu/" class="text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin-in text-3xl"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="md:w-1/2">
+                    <img src="/image/4.png" alt="member" class="rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- Pastikan untuk menyertakan Font Awesome di dalam proyek Anda -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <footer class="bg-pink-500 text-white p-6">
+        <div class="container mx-auto text-center">
+            <p>© 2024 Mengayu Indonesia</p>
+        </div>
+    </footer>
+</body>
+</html>
