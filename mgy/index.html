@@ -236,6 +236,78 @@
         <img src="https://mengayuindonesia.github.io/prototipe/mgy/image/pathner.jpg" alt="partnership" class="w-full h-full object-cover">
     </section>
 
+    <!-- survey -->
+     <section id="survey" class="container mx-auto mt-10 p-6">
+        <h2 class="text-3xl font-bold text-center mb-6 text-pink-600">Survei Kepuasan Pengguna</h2>
+        <form id="survey-form" class="bg-white p-6 rounded-lg shadow-md space-y-4">
+            <div>
+                <label for="name" class="block font-semibold">Nama Anda:</label>
+                <input type="text" id="name" name="name" required class="w-full border rounded-lg p-2">
+            </div>
+            <div>
+                <label for="alamat" class="block font-semibold">Alamat:</label>
+                <input type="almat" id="alamat" name="alamat" required class="w-full border rounded-lg p-2">
+            </div>
+            <div>
+                <label for="rating" class="block font-semibold">Seberapa puas Anda dengan layanan kami?</label>
+                <select id="rating" name="rating" required class="w-full border rounded-lg p-2">
+                    <option value="">-- Pilih --</option>
+                    <option value="5">Sangat Puas</option>
+                    <option value="4">Puas</option>
+                    <option value="3">Cukup</option>
+                    <option value="2">Kurang</option>
+                    <option value="1">Sangat Kurang</option>
+                </select>
+            </div>
+            <div>
+                <label for="feedback" class="block font-semibold">Masukan Anda:</label>
+                <textarea id="feedback" name="feedback" rows="4" class="w-full border rounded-lg p-2"></textarea>
+            </div>
+            <button type="submit" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600">
+                Kirim Survei
+            </button>
+        </form>
+    </section>
+
+    <script>
+        // Konfigurasi Firebase Anda (WAJIB diganti dengan konfigurasi proyek Anda)
+        const firebaseConfig = {
+            apiKey: "AIzaSyA8jtCrX24njk4AleRzKbCP13XTlFHK-WU",
+            authDomain: "survei-mengayu.firebaseapp.com",
+            databaseURL: "https://survei-mengayu-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "survei-mengayu",
+            storageBucket: "survei-mengayu.firebasestorage.app",
+            messagingSenderId: "1021352014094",
+            appId: "1:1021352014094:web:a67841bee91f7c83aae75f",
+            measurementId: "G-J958D9FXJF"
+        };
+
+        // Inisialisasi Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        document.getElementById('survey-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const surveyData = Object.fromEntries(formData.entries());
+
+            try {
+                // Simpan data ke Firebase Realtime Database di path 'surveys'
+                const surveysRef = firebase.database().ref('surveys'); // Referensi ke path 'surveys'
+                const newSurveyRef = surveysRef.push(); // Membuat ID unik
+                await newSurveyRef.set(surveyData); // Menyimpan data
+
+                alert('Terima kasih atas partisipasi Anda!');
+                event.target.reset(); // Reset formulir setelah pengiriman berhasil
+
+            } catch (error) {
+                console.error("Error writing data to Firebase:", error);
+                alert('Gagal mengirim survei. Silakan coba lagi nanti.');
+            }
+        });
+    </script>
+    
     <div id="contact" class="container mx-auto px-4 py-8">
         <div class="bg-white rounded-lg shadow-md p-8">
             <div class="flex flex-col md:flex-row items-center">
